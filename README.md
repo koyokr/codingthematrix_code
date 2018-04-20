@@ -16,7 +16,11 @@ git config --global user.email "koyo@koyo.kr"
 git config --global user.name "koyo"
 
 python -m pip install -U pip setuptools
-python -m pip install matplotlib
+python -m pip install matplotlib autopep8
+
+cd %homepath%\Documents
+git clone https://github.com/koyokr/codingthematrix_code
+
 ```
 
 http://resources.codingthematrix.com/
