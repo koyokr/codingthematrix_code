@@ -10,15 +10,16 @@ study
 
 <https://dl.bandisoft.com/bandizip.kr/BANDIZIP-SETUP-KR.EXE>
 
+<https://github.com/naver/d2codingfont/releases>
+
 <http://update.whale.naver.net/downloads/installers/WhaleSetup.exe>
 
 ```bat
-git config --global user.email "koyo@koyo.kr"
-git config --global user.name "koyo"
-
 python -m pip install -U pip setuptools
 python -m pip install matplotlib pylint autopep8
 
+git config --global user.email "koyo@koyo.kr"
+git config --global user.name "koyo"
 cd %homepath%\Documents
 git clone https://github.com/koyokr/codingthematrix_code
 
