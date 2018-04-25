@@ -50,29 +50,119 @@ def task_2_4_8():
 def task_2_4_9():
     plot({z*-1j/2 - 1j + 2 for z in S}, 4)
 def task_2_4_10():
-    from image import file2image
-    data = file2image('img01.png')
-    width = len(data[0])
-    height = len(data)
+    from image import file2image, color2gray
+    data = color2gray(file2image('gopher.png'))
     pts = {x + 1j*y for y, ps in enumerate(reversed(data))
                     for x, p in enumerate(ps)
-                    if p[0] < 120}
+                    if p[0] < 150}
+    width = max(abs(z.real) for z in pts)
+    height = max(abs(z.imag) for z in pts)
     plot(pts, max(width, height), 1)
 def f(s):
     reals = {z.real for z in s}
     imags = {z.imag for z in s}
     rc = (max(reals) - min(reals)) / 2
     ic = (max(imags) - min(imags)) / 2
-    return {z -rc - 1j*ic for z in s}
+    return {z - rc - 1j*ic for z in s}
 def task_2_4_11():
     plot(f(S))
 def task_2_4_12():
-    from image import file2image
-    data = file2image('gopher.png')
-    width = len(data[0])
-    height = len(data)
+    from image import file2image, color2gray
+    data = color2gray(file2image('gopher.png'))
     pts = {x + 1j*y for y, ps in enumerate(reversed(data))
                     for x, p in enumerate(ps)
-                    if p[0] < 120}
-    plot(f(pts), max(width, height), 1)
-task_2_4_12()
+                    if p < 150}
+    width = max(abs(z.real) for z in pts)
+    height = max(abs(z.imag) for z in pts)
+    pts2 = f(pts)
+    plot(pts2, max(width, height), 1)
+'2.4.6 복소 평면의 단위원: 편각과 각도'
+'2.4.7 오일러 공식'
+def task_2_4_17():
+    from math import e, pi
+    n = 20
+    w = e ** (2j * pi / n)
+    plot([w ** x for x in range(n)])
+'2.4.8 복소수에 대한 극좌표 표현'
+# z = r*e**(1j*θ)
+'2.4.9 첫 번째 지수 법칙'
+# e**u * e**v == e**(u+v)
+'2.4.10 τ 라디안 회전'
+# f(z) = z*e**(1j*τ)
+def task_2_4_18():
+    from math import e, pi
+    plot({z * e**(pi/4 * 1j) for z in S})
+def task_2_4_19():
+    from math import e, pi
+    from image import file2image, color2gray
+    data = color2gray(file2image('gopher.png'))
+    pts = {x + 1j*y for y, ps in enumerate(reversed(data))
+                    for x, p in enumerate(ps)
+                    if p < 150}
+    width = max(abs(z.real) for z in pts)
+    height = max(abs(z.imag) for z in pts)
+    pts2 = {z * e**(pi/4 * 1j) for z in pts}
+    plot(pts2, max(width, height), 1)
+'2.4.11 연산 결합하기'
+def task_2_4_20():
+    from math import e, pi
+    from image import file2image, color2gray
+    data = color2gray(file2image('gopher.png'))
+    pts = {x + 1j*y for y, ps in enumerate(reversed(data))
+                    for x, p in enumerate(ps)
+                    if p < 150}
+    width = max(abs(z.real) for z in pts)
+    height = max(abs(z.imag) for z in pts)
+    pts2 = f(pts)
+    pts3 = {z * e**(pi/4 * 1j) / 2 for z in pts2}
+    plot(pts3, max(width, height), 1)
+'2.4.12 3차원 이상의 경우'
+
+
+'2.5 GF(2)에 대해 알아보기'
+# GF(2): Galois Field 2
+#
+# *|0 1
+# 0|0 0
+# 1|0 1
+#
+# +|0 1
+# 0|0 1
+# 0|1 0
+from GF2 import one
+__(one*one)
+__(one*0)
+__(one + 0)
+__(one+one)
+__(-one)
+'2.5.1 완벽한 비밀 유지 - 다시 방문'
+# p k|c
+# 0 ♣|0
+# 0 ♡|1
+# 1 ♣|1
+# 1 ♥|0
+#
+# k -> k + p는 가역적(단사, 전사)
+#
+# p k|c
+# 0 0|0
+# 0 1|1
+# 1 0|1
+# 1 1|0
+#
+# 키 비트열 k1 ... kn
+# 평문 p1 ... pn
+# 암호문 c1 ... cn
+# c1 = k1 + p1
+# c2 = k2 + p2
+# ...
+# cn = kn + pn
+# c는 p에 대해 주는 정보가 아무것도 없다. 그러므로 완벽한 비밀 유지가 가능하다.
+# 이러한 암호체계를 one-time pad라고 부른다.
+'2.5.1 네트워크 코딩(Network coding)'
+
+
+'2.6 Review questions'
+
+
+'2.7 Problems'
