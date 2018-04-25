@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 
-from myprint import myprint as _
+from myprint import myprint as __
 
 
 '2.2 파이썬에서의 복소수'
-_(3j)
-_(1+3j)
-_((1+3j) + (10+20j))
+__(3j)
+__(1+3j)
+__((1+3j) + (10+20j))
 x = 1+3j
-_((x-1)**2)
-_(x.real)
-_(x.imag)
-_(type(1+2j))
+__((x-1)**2)
+__(x.real)
+__(x.imag)
+__(type(1+2j))
 
 
 '2.3 필드의 추상화'
 def solve1(a, b, c): return (c-b)/a
-_(solve1(10, 5, 30))
-_(solve1(10+5j, 5, 20))
+__(solve1(10, 5, 30))
+__(solve1(10+5j, 5, 20))
 
 
 '2.4 복소수 필드 C 다루기'
@@ -27,10 +27,10 @@ def task_2_4_1():
     plot(S, 4)
 '2.4.1 복소수의 절대값'
 # abs(z)**2 == z.real**2 + z.imag**2
-_(abs(3+4j))
-_(abs(1+1j))
+__(abs(3+4j))
+__(abs(1+1j))
 # Definition 2.4.2: 복소수 z의 공액 복소수 z.conjugate() == z.real - z.imag
-_((3+4j).conjugate())
+__((3+4j).conjugate())
 # abs(z)^2 == z * z.conjugate()
 '2.4.2 복소수 덧셈하기'
 def task_2_4_3():
