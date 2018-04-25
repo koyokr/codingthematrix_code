@@ -94,4 +94,4 @@ def create_temp(suffix='', prefix='tmp', dir=None):
 
 # Register a file to be removed at exit
 def remove_at_exit(path):
-    atexit.register(lambda: time.sleep(0.3) or os.remove(path))
+    atexit.register(lambda: time.sleep(0.5) or os.remove(path))
