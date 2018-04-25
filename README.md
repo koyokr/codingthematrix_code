@@ -16,7 +16,7 @@ study
 
 ```bat
 python -m pip install -U pip setuptools
-python -m pip install matplotlib pypng pylint autopep8 rope
+python -m pip install matplotlib pylint autopep8 rope
 
 git config --global user.email "koyo@koyo.kr"
 git config --global user.name "koyo"
